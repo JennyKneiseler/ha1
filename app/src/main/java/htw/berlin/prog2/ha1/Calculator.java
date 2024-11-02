@@ -59,8 +59,20 @@ public class Calculator {
      * auf dem Bildschirm angezeigt. Falls hierbei eine Division durch Null auftritt, wird "Error" angezeigt.
      * @param operation "+" für Addition, "-" für Substraktion, "x" für Multiplikation, "/" für Division
      */
+
+    //Für mich: Änderung für Test testNegativeAddition
+
+    /** Empfängt ein negativen wert
+     * rechnet negativ weiter
+     * @param operation negativer wert wird berechnet
+     */
     public void pressBinaryOperationKey(String operation)  {
-        latestValue = Double.parseDouble(screen);
+        if (latestOperation.isEmpty()) {
+            latestValue = Double.parseDouble(screen); //sorgt dafür das der aktuelle wert gespeichert wird
+        } else {
+           pressEqualsKey(); //berechnung des zwischenergebnisses wenn operation schon exestiert
+            latestValue = Double.parseDouble(screen); //speichert das ergebnis
+        }
         latestOperation = operation;
     }
 

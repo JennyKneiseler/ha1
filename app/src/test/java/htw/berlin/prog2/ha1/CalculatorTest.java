@@ -111,6 +111,7 @@ class CalculatorTest {
 
     @Test
     @DisplayName("should display result after addition of a negative number ")
+    //Sollte -65 raus kommen
     void testNegativeAddition() {
         Calculator calc = new Calculator();
 
@@ -121,6 +122,8 @@ class CalculatorTest {
         calc.pressDigitKey(1);
         calc.pressDigitKey(9);
         calc.pressEqualsKey();
+
+
 
         String expected = "-65";
         String actual = calc.readScreen();
