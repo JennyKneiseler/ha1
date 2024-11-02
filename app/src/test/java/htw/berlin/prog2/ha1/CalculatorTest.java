@@ -90,5 +90,23 @@ class CalculatorTest {
 
 
     //TODO hier weitere Tests erstellen
+
+    @Test
+    @DisplayName("should display result after after subtracting two values")
+    void testSubtrahierung() {
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(8);
+        calc.pressDigitKey(4);
+        calc.pressBinaryOperationKey("-");
+        calc.pressDigitKey(1);
+        calc.pressDigitKey(2);
+        calc.pressEqualsKey();
+
+        String expected = "72";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
 }
 
