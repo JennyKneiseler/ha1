@@ -123,9 +123,25 @@ class CalculatorTest {
         calc.pressDigitKey(9);
         calc.pressEqualsKey();
 
-
-
         String expected = "-65";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("should display result after multiply a multiplication ")
+    void testMultiplyMultiplication() {
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(4);
+        calc.pressBinaryOperationKey("*");
+        calc.pressDigitKey(9);
+        calc.pressBinaryOperationKey("*");
+        calc.pressDigitKey(7);
+        calc.pressEqualsKey();
+
+        String expected = "252";
         String actual = calc.readScreen();
 
         assertEquals(expected, actual);
