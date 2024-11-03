@@ -14,6 +14,8 @@ public class Calculator {
 
     private String latestOperation = "";
 
+    private boolean clearScreen;
+
     /**
      * @return den aktuellen Bildschirminhalt als String
      */
@@ -44,10 +46,18 @@ public class Calculator {
      * Werte sowie der aktuelle Operationsmodus zurückgesetzt, so dass der Rechner wieder
      * im Ursprungszustand ist.
      */
+
+    //Änderung für Test testDeleteDigit()
     public void pressClearKey() {
-        screen = "0";
-        latestOperation = "";
-        latestValue = 0.0;
+        if (!clearScreen) {
+            screen = "0";
+            clearScreen = true;
+        } else {
+            screen ="0";
+            latestOperation = "";
+            latestValue = 0.0;
+            clearScreen = false;
+        }
     }
 
     /**
@@ -60,7 +70,7 @@ public class Calculator {
      * @param operation "+" für Addition, "-" für Substraktion, "x" für Multiplikation, "/" für Division
      */
 
-    //Für mich: Änderung für Test testNegativeAddition
+    //Für mich: Änderung für Test testNegativeAddition()
 
     /** Empfängt ein negativen wert
      * rechnet negativ weiter
