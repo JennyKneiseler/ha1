@@ -129,20 +129,21 @@ class CalculatorTest {
         assertEquals(expected, actual);
     }
     @Test
-    @DisplayName("should display result after multiply a multiplication ")
-    void testPointBeforeLine() {
+    @DisplayName("should allow to delete the entered digit")
+    void testDeleteDigit() {
         Calculator calc = new Calculator();
 
-        calc.pressDigitKey(4);
+        calc.pressDigitKey(2);
         calc.pressBinaryOperationKey("+");
-        calc.pressDigitKey(9);
-        calc.pressBinaryOperationKey("*");
-        calc.pressDigitKey(7);
+        calc.pressDigitKey(4);
+        calc.pressClearKey();
+        calc.pressDigitKey(5);
         calc.pressEqualsKey();
 
-        String expected = "67";
+        String expected = "7";
         String actual = calc.readScreen();
 
         assertEquals(expected, actual);
     }
+
 }
